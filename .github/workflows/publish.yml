@@ -2,9 +2,6 @@ on:
   workflow_dispatch:
   push:
     branches: main
-    paths:
-      - 'book/**.qmd'
-      - 'book/**.yml'
 
 name: Quarto Publish
 
@@ -24,5 +21,7 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          paths: 'book/**.qmd'
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
